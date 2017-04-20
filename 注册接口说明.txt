@@ -1,0 +1,22 @@
+访问记录接口：http://top.95105899.com/Tj/statjson?callback=?
+参数：
+adid:广告id,这边统一生成。
+"screenwidth": screen.width, 
+"screenheight": screen.height, 
+"referer": escape(document.referrer)
+返回json格式
+json["seesionid"]
+
+获取验证码接口：http://top.95105899.com/Tj/getVerificationCode?callback=?
+参数：mobile:encMe(mobile, keyIV),加密手机号
+username:用户名
+refer:document.referrer
+adid:广告id
+sessionid:访问记录返回的json["seesionid"]。
+
+注册接口：http://top.95105899.com/Tj/getRegUser?callback=?
+参数：mobile:encMe(mobile, keyIV),加密手机号
+yzm: 验证码
+refer:document.referrer
+adid:广告id
+sessionid:访问记录返回的json["seesionid"]。

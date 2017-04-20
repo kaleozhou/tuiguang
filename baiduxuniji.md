@@ -1,0 +1,17 @@
+主机临时域名：kaleo.gz01.bdysite.com；
+独立控制面板：http://panel-gz.bcehost.com/；
+主机管理账号：kaleo；
+主机管理密码：kaleozhou；
+FTP地址：kaleo.ftp-gz01.bcehost.com；
+FTP端口号：8010；
+FTP登录账号：kaleo；
+FTP密码：kaleozhou；
+MySQL连接地址：sqld-gz.bcehost.com；
+MySQL端口号：4050；
+MySQL数据库名：NumpOctPYhdCOoxushfq；
+MySQL账号：b592c5130b1d416b853c163c18d3cc48；
+MySQL密码：15dd2257c4034eef9ba645f548ae2238；
+PHPMyAdmin访问地址：http://sma-gz.bcehost.com/pmap/jump?db=NumpOctPYhdCOoxushfq&expires=1492246896&sign=fffdf961acce1d89e2c8d03e3896548c&client_id=b592c5130b1d416b853c163c18d3cc48；
+管理联系人：周衍鹏；
+管理联系人手机号：13635456575；
+管理联系人邮箱：kaleo1990@sina.cn；

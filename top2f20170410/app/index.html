@@ -1,0 +1,298 @@
+﻿<!doctype html>
+<html>
+<head>
+	<meta charset="utf-8">	
+	<meta name="viewport" content="width=device-width">
+	<title>摇钱术第一炒股软件</title>
+    <meta name="keywords" content="证券下载/今日热点/股票软件/牛股推荐/黑马股/涨停股/今日股市/资金流向/老股民博客/今日牛股/今日行情/大智慧/指南针" />
+    <meta name="description" content="摇钱术帮助投资者诊断个股，极速解套，推荐牛股，涨停牛股，股票入门，选股技巧，炒股必看。" />
+    <script type="text/javascript" src="js/jquery-2.1.4.min.js"></script>
+    <script src="js/enco.js" type="text/javascript" charset="utf-8"></script>
+    <script>
+    var AdId = 156;
+    var sessionid = "";
+    function RecordView(adid) {
+        $.getJSON("http://top.95105899.com/Tj/statjson?callback=?", { "rt": Math.random(), "adid": adid, "screenwidth": screen.width, "screenheight": screen.height, "referer": escape(document.referrer) }, function (json) { sessionid = json["seesionid"]; });
+    }
+
+    $(function () {
+        RecordView(AdId);
+
+        $('#getcode').click(function () {
+            if ($("#txtMobile").val().match(/^\d{11}$/)) {
+                $('#regError').css('display', 'none');
+                getVerificationCode($("#txtMobile").val(), "");
+            } else {
+                $("#txtMobile").focus();
+                $('#mobileError').css('display', 'inline-block');
+            }
+        });
+
+        $('#regi').click(function () {
+            var regicode = $("#regicode").val();
+            var txtMobile = $("#txtMobile").val();
+            if (regicode.match(/^\d{4,6}$/)) {
+                $('#regError').css('display', 'none');
+                getRegUser(txtMobile, "", regicode);
+            } else {
+                $("#regicode").focus();
+                $('#regError').css('display', 'inline-block');
+            }
+
+        });
+
+
+    });
+
+    var isGetVCode = false;
+    var isReg = false;
+    function getVerificationCode(mobile, username) {
+        if (isGetVCode) {
+            alert("请勿重复提交！");
+            return false;
+        }
+        else {
+            isGetVCode = true;
+            $.getJSON("http://top.95105899.com/Tj/getVerificationCode?callback=?", { 'rt': Math.random(), 'mobile': encMe(mobile, keyIV), 'username': username, 'refer': document.referrer, 'adid': AdId, 'sessionid': sessionid }, function (json) {
+                var msg = json["message"];
+                alert(msg);
+            });
+        }
+    }
+    function getRegUser(mobile, username, regicode) {
+        if (!isReg) {
+            isReg = true;
+            if (username.length > 6) {
+                username = "无名氏";
+            }
+            $.getJSON("http://top.95105899.com/Tj/getRegUser?callback=?", { 'rt': Math.random(), 'mobile': encMe(mobile, keyIV), 'username': username, 'yzm': regicode, 'refer': document.referrer, 'adid': AdId, 'sessionid': sessionid }, function (json) {
+                if (json["message"].indexOf("注册成功") >= 0) {
+                    alert("恭喜您注册成功！账号密码均为" + mobile + "，请及时修改密码，点击确认，立即体验揺钱术正版软件的强大炒股功能。");
+                    if (window._gsTracker) {
+                        _gsTracker.track("/targetpage/regOk");
+                    }
+                    top.location = 'http://web.95105899.com/';
+                }
+                else {
+                    alert(json["message"]);
+                }
+            });
+        } else {
+            alert("请不要重复提交！");
+            return false;
+        }
+    }
+    </script>
+	<style type="text/css">
+		*{
+			margin:0;
+			padding:0;
+			box-sizing:border-box;
+		}
+		img{
+			max-width:100%;
+            margin:0;
+            padding:0;
+		}	
+        div{
+            margin:0;padding:0;
+        }
+		.login{
+        	width:11rem;
+            height:100%;
+        	font-size:0.35rem;
+        	border-radius:0.25rem;
+        }
+        
+        .login .closelogin {
+            width: 18px;
+            height: 18px;
+            position: absolute;
+            right: 8px;
+            top: 10px;
+            cursor: pointer;
+            background: url(images/close.png) no-repeat;
+        }
+        .login .text {
+            width: 11rem;
+            height: 1rem;
+            line-height: 0.5rem;
+            font-size:0.45rem;
+            font-family: '微软雅黑';
+            color: #464646;
+            padding-left: 0.4rem;
+            margin-top: 1rem;
+            vertical-align: middle;
+        }
+        
+        .login input[type=text] {
+            height: 0.8rem;
+            border-radius: 5px;
+            border: 1px solid #cdcdcd;
+            width: 4rem;
+            font-size: 0.35rem;
+            font-family: '微软雅黑';
+        }
+       
+        .num {
+            color: #d72f2f;
+            margin-left: 0.1rem;
+            display: inline-block;
+            height:0.8rem;
+            text-align: center;
+            text-decoration: underline;
+            cursor: pointer;
+        }
+        .login .errorMsg {
+            float: right;
+            padding-right: 1rem;
+            width: 4rem;
+            height:1rem;
+            display: none;
+            font-size: 0.35rem;
+            line-height: 0.35rem;
+            text-align: left;
+            padding-top: 4px;
+           /* padding-left: 1rem;*/
+            color: #fff;
+            background: url(images/error.png) no-repeat;
+        }
+        .wait {
+            display: none;
+            color: #b0b0b0;
+            width: 130px;
+            height: 40px;
+            line-height: 40px;
+            text-align: center;
+            background: #fff;
+            border: 1px solid #d2d2d2;
+            border-radius: 5px;
+            -webkit-border-radius: 5px;
+        }
+        a{font-size:0.35px;}
+        .content{
+            position:absolute;
+            top:1.5rem;
+            left:0;
+        }
+        center p{color:#fff;}
+        center .tykh{
+            font-weight:bold;
+            font-size:0.6rem;
+        }
+        .button{
+            background:#f00;
+            border-radius:0.2rem;
+            width:5rem;
+            height:1rem;
+            line-height:1rem;
+            text-align:center;
+            margin-left:2.5rem;
+        }
+        #tablel{
+            border:1px solid #fff;
+        }
+        #tablel tr td{
+            width:2rem;
+            height:1rem;
+            text-align:center;
+            background:#373739;
+            color:#fff;
+            font-size:0.35rem;
+        }
+	</style>
+</head>
+<body>
+	
+	<div class="login" showready="1" style="display:block;">
+        <img src="images/bg.jpg">
+        <div class="content">
+            <center>
+                <p class="tykh">恭喜您正成为摇钱术体验客户</p><br/>
+                <img src="images/logo.png" style="width:2.3rem"><br>
+                <p>诊股、选股、买卖点一站式解决</p>
+                <p>免费赠送价值1980元的iPhone版、安卓版软件</p>
+            </center>
+            <div style="background:rgba(255,255,255,.5);width:11rem;height:12rem;position:relative;">
+                <div class="text" style="position:absolute;">
+                    手机号： <input id="txtMobile" type="text" placeholder="接收用户名和密码">
+                   <div id="mobileError" class="errorMsg">
+                        请输入<br>正确手机号
+                   </div>
+                </div>
+                <div class="text" style="position:absolute; top:1.5rem">
+                    验证码： <input id="regicode" type="text" placeholder="验证码" style="width:2rem">
+                    <div id="getcode" class="num">获取验证码</div>
+                    <!-- <div id="recvicode" class="wait">重新获取</div> -->
+                    <div id="regError" class="errorMsg">
+                        请输入<br> 正确验证码
+                   </div>
+                </div>
+                <div class="button" showready="1" id="regi" style="position:absolute; top:4rem">
+                    <span style="color:#fff;">点击领取</span>
+                </div>
+                <div style="width:98%;position:absolute;bottom:1rem;margin-left:0.1rem;">
+                    <table id="tablel" border="1" cellspacing="0">
+                        <tbody>
+                            <tr>
+                                 <td>代码</td>
+                                 <td>名称</td>
+                                 <td>功能</td>
+                                 <td>发出日期</td>
+                                 <td>阶段涨幅</td>
+                            </tr>
+                             <tr>
+                                 <td>603822</td>
+                                 <td>嘉澳环保</td>
+                                 <td>黄金坑</td>
+                                 <td>2017.3.2-3.10</td>
+                                 <td> 64.90%</td>
+                             </tr>
+                             <tr>
+                                 <td>601069</td>
+                                 <td>西部黄金</td>
+                                 <td>黄金坑</td>
+                                 <td>2017.3.22-3.31</td>
+                                 <td>12%</td>
+                             </tr>
+                             <tr>
+                                 <td>000858</td>
+                                 <td>五粮液</td>
+                                 <td>黄金眼</td>
+                                 <td>2017.2.6</td>
+                                 <td>31.33%</td>
+                             </tr>
+                             <tr>
+                                 <td>600744</td>
+                                 <td>华银电力</td>
+                                 <td>黄金眼</td>
+                                 <td>2017.3.3</td>
+                                 <td>28%</td>
+                             </tr>
+                            </tbody>
+                    </table>
+                </div>
+                
+            </div>    
+        </div>     
+    </div>
+	
+	<script type="text/javascript">
+	   (function(win,doc){
+			var fresh=function(){
+				var html=document.documentElement;
+				var w=html.clientWidth;
+				html.style.fontSize=(w/10)+'px';
+			}
+			if(document.readyState==='complete'){
+				fresh();
+			}else{
+				document.addEventListener('DOMContentLoaded',fresh,false);
+			}
+			win.addEventListener('resize',fresh,false);
+		})(window,document)
+	    
+	</script>
+ <script src="https://s95.cnzz.com/z_stat.php?id=1259494254&web_id=1259494254" language="JavaScript"></script>
+</body>
+</html>

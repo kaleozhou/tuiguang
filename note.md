@@ -1,0 +1,24 @@
+#360推广账户
+http://e.360.cn/home
+top1004@topcj.com
+a123456
+#服务器地址
+192.168.3.23
+##ftp
+https://123.157.223.2:5443/
+user:topsifen
+pass:sftop!#20
+#vpn
+https://123.157.223.2:5443/
+testvpn
+ssl@vpn1
+#虚拟机
+ip地址是
+192.168.3.24    
+topsifen   
+topsifen12#$
+61.164.40.156
+61.164.40.156 6622
+#微信公众号
+top1004@topcj.com
+topcj1004
