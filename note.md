@@ -22,3 +22,11 @@ topsifen12#$
 #微信公众号
 top1004@topcj.com
 topcj1004
+#直播服务器
+106.14.59.186
+10.28.0.119
+#管理地址
+http://vip.mmtvzb.com/Zzcfadmin
+zbadmin888
+hzdlmwhzb888
+hzd1mwhzb888
