@@ -21,7 +21,7 @@ topsifen12#$
 61.164.40.156 6622
 #微信公众号
 top1004@topcj.com
-topcj1004
+topcj1704
 #直播服务器
 106.14.59.186
 10.28.0.119
@@ -30,3 +30,6 @@ http://vip.mmtvzb.com/Zzcfadmin
 zbadmin888
 hzdlmwhzb888
 hzd1mwhzb888
+29458.lsspublish.aodianyun.com 
+29458.lssplay.aodianyun.com
+
